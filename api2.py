@@ -11,7 +11,7 @@ diccionario={}
 
 @app.get("/metrica")
 async def get_all():
-    if len(diccionario)==0: #Preguntar de nuevo
+    if len(diccionario)==0: 
         read_all()
     return diccionario
 
