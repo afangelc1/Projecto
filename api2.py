@@ -3,7 +3,7 @@ import csv
 
 app=FastAPI()
 
-@app.get("/")
+@app.get("/") 
 async def index():
     return "mensaje"
 
@@ -32,25 +32,26 @@ async def actualizar(id:int,timestamp:str, metrica:int):
 
 @app.delete("/metrica")
 async def eliminar(timestamp:str):
-    diccionario.pop(timestamp)
+    diccionario.pop(timestamp) # elimina el dato específico y lo reescribe en el archivo metricas
     reescribir()
     return diccionario
 
 
-def read_all():
+def read_all(): #Lee los datos que hay en el archivo metricas
     with open("metricas.csv","r") as file:
         lector=csv.reader(file)
 
         for fila in lector:
             diccionario[fila[1]]={"id":fila[0],"metrica":fila[2]}
 
-#
+#escribe nuevos datos
 def write_doc(id:int,timestamp:str, metrica:int):
     diccionario[timestamp]={"id":id,"metrica":metrica} # Para que el cambio se vea reflejado en el diccionario
     with open("metricas.csv","a+",newline="") as file:
         escritor=csv.writer(file,delimiter=",")
         escritor.writerow([id,timestamp,metrica])#Aquí también se escribe en el archivo
 
+#Esta función sirve para los métodos put y delete
 def reescribir():
     with open("metricas.csv","w",newline="") as file:
         escritor=csv.writer(file,delimiter=",")
