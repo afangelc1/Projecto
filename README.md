@@ -8,4 +8,4 @@ Para prender el dispositivo y el módulo que se encarga de enviar los datos a la
 
 Gráfica de arquitectura.
 
-https://user-images.githubusercontent.com/108104976/175625057-1228e588-e56d-4d78-9352-f7c288ff5025.png
+https://user-images.githubusercontent.com/108104976/175651109-851ac3fe-aa23-4995-8ae3-1501a88cda66.png
