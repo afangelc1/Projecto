@@ -24,6 +24,7 @@ async def enviar_métrica():
             response3=requests.post("http://127.0.0.1:8000/metrica",params={"id":dato["id"],"timestamp":dato["fecha"],"metrica":dato["valor"]})
         print("sigo en pie")
 
+"""Ejecuta los ciclos"""
 future=loop.create_task(dispositivo(2))
 loop.run_until_complete(enviar_métrica())
 
